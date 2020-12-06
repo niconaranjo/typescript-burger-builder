@@ -7,11 +7,12 @@ export enum IngredientsName {
 }
 
 export interface BurgerBuilderState {
-  ingredients: {
-    [key in ingredientsTypeStrings]: number;
-  };
+  ingredients: ingredientTypeObject;
   totalPrice: number;
   purchasable: boolean;
+}
+export interface AuxProps {
+  children: React.ReactElement | React.ReactElement[];
 }
 
 export type ingredientsTypeStrings = keyof typeof IngredientsName;

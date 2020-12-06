@@ -1,8 +1,6 @@
 import React from 'react';
 
-interface AuxProps {
-  children: React.ReactElement | React.ReactElement[];
-}
+import { AuxProps } from '../utils/types-and-interfaces';
 
 const Aux = (props: AuxProps): JSX.Element =>
   props.children as React.ReactElement;
