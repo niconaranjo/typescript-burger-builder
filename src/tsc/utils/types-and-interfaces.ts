@@ -10,6 +10,7 @@ export interface BurgerBuilderState {
   ingredients: ingredientTypeObject;
   totalPrice: number;
   purchasable: boolean;
+  purchasing: boolean;
 }
 export interface AuxProps {
   children: React.ReactElement | React.ReactElement[];

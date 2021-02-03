@@ -33,7 +33,6 @@ const burger = (props: BurgerProps) => {
     transformedIngredients = <p>Please start adding ingredients!</p>;
   }
 
-  console.log(transformedIngredients);
   return (
     <div className="Burger">
       <BurgerIngredient type="bread-top" />

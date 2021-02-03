@@ -5,8 +5,13 @@ import {
   ingredientsTypeStrings,
 } from '../../../utils/types-and-interfaces';
 
+import Button from '../../UI/Button/Button';
+
 interface OrderSumaryProps {
   ingredients: ingredientTypeObject;
+  price: number;
+  cancelPurchase: () => void;
+  proceedPurchase: () => void;
 }
 
 const OrderSummary = (props: OrderSumaryProps) => {
@@ -26,6 +31,16 @@ const OrderSummary = (props: OrderSumaryProps) => {
       <p>A delicious burger with the following ingredients:</p>
       <ul>{ingredientsSummary}</ul>
       <p>Continue to checkout?</p>
+      <p>
+        <strong>Total Price: </strong>
+        {props.price.toFixed(2)}
+      </p>
+      <Button btnType="Danger" clicked={props.cancelPurchase}>
+        Cancel
+      </Button>
+      <Button btnType="Success" clicked={props.proceedPurchase}>
+        Purchase
+      </Button>
     </>
   );
 };

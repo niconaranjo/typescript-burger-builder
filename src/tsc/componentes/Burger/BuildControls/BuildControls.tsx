@@ -25,9 +25,7 @@ interface BuildControlsProps {
   };
   price: number;
   purchase: boolean;
-  /*
-
-  ordered: () => void; */
+  ordered: () => void;
 }
 
 const BuildControls = (props: BuildControlsProps) => {
@@ -45,7 +43,12 @@ const BuildControls = (props: BuildControlsProps) => {
           disabled={props.disabled[item.IngredientType] as boolean}
         />
       ))}
-      <button className="OrderButton" type="button" disabled={props.purchase}>
+      <button
+        className="OrderButton"
+        type="button"
+        disabled={props.purchase}
+        onClick={props.ordered}
+      >
         ORDER NOW
       </button>
     </div>
