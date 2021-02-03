@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { AuxProps } from '../../../utils/types-and-interfaces';
 import Backdrop from '../Backdrop/Backdrop';
@@ -8,20 +8,26 @@ interface ModalInterface extends AuxProps {
   modalClosed: () => void;
 }
 
-const modal = (props: ModalInterface): JSX.Element => {
-  const modalStyle = {
-    opacity: props.show ? '1' : '0',
-    transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
-  };
+class Modal extends Component<ModalInterface> {
+  shouldComponentUpdate(nextProps: ModalInterface) {
+    return nextProps.show !== this.props.show;
+  }
 
-  return (
-    <>
-      <Backdrop show={props.show} click={props.modalClosed} />
-      <div className="Modal" style={modalStyle}>
-        {props.children}
-      </div>
-    </>
-  );
-};
+  render() {
+    const modalStyle = {
+      opacity: this.props.show ? '1' : '0',
+      transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)',
+    };
 
-export default modal;
+    return (
+      <>
+        <Backdrop show={this.props.show} click={this.props.modalClosed} />
+        <div className="Modal" style={modalStyle}>
+          {this.props.children}
+        </div>
+      </>
+    );
+  }
+}
+
+export default Modal;

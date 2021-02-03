@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Aux from '../../hoc/aux';
+import Aux from '../Aux/aux';
 
-import Toolbar from '../Navigation/Toolbar/Toolbar';
-import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
+import Toolbar from '../../componentes/Navigation/Toolbar/Toolbar';
+import SideDrawer from '../../componentes/Navigation/SideDrawer/SideDrawer';
 
 interface LayoutProps {
   children: React.ReactElement;
