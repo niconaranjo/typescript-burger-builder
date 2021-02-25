@@ -7,10 +7,11 @@ export enum IngredientsName {
 }
 
 export interface BurgerBuilderState {
-  ingredients: ingredientTypeObject;
+  ingredients: ingredientTypeObject | null;
   totalPrice: number;
   purchasable: boolean;
   purchasing: boolean;
+  loading: boolean;
 }
 export interface AuxProps {
   children: React.ReactElement | React.ReactElement[];

@@ -10,7 +10,10 @@ interface ModalInterface extends AuxProps {
 
 class Modal extends Component<ModalInterface> {
   shouldComponentUpdate(nextProps: ModalInterface) {
-    return nextProps.show !== this.props.show;
+    return (
+      nextProps.show !== this.props.show ||
+      nextProps.children !== this.props.children
+    );
   }
 
   render() {

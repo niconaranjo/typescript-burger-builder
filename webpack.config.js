@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
@@ -87,6 +88,9 @@ module.exports = {
     publicPath: '/dist',
     filename: 'app.js',
   },
+  node: {
+    fs: 'empty',
+  },
   plugins: [
     new webpack.DefinePlugin({
       __DEV__: true,
@@ -102,6 +106,7 @@ module.exports = {
         },
       ],
     }),
+    new Dotenv(),
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
